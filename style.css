@@ -1,0 +1,114 @@
+/* Algemene stijlen */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 375px; /* iPhone 15 Pro schermbreedte */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Schema Items */
+.schedule-item {
+    border-bottom: 1px solid #333;
+    padding: 20px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.schedule-item:nth-child(even) {
+    animation-delay: 0.1s;
+}
+
+.schedule-item:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.time {
+    font-weight: bold;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.details {
+    flex-grow: 1;
+}
+
+.details p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+}
+
+.checkbox {
+    margin-right: 15px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #fff;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '✔️';
+    position: absolute;
+    top: -2px;
+    left: 4px;
+    font-size: 20px;
+    color: #000;
+}
+
+.schedule-item.completed .details {
+    color: #777;
+    text-decoration: line-through;
+}
+
+.schedule-item.completed .time {
+    color: #555;
+}
+
+@media screen and (max-width: 375px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+/* Animaties */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
